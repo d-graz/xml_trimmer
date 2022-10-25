@@ -10,3 +10,9 @@ Trimm down size to make file size more feasible for import in neo4j
 python main.py trimm <path/to/cleaned_database.xml> <path/to/neo4j_database.xml> [#_of_articles]
 ```
 Defaul size of number of articles is `500`
+
+---
+You can now import your xml database in neo4j with
+```
+CALL apoc.import.xml("neo4j_database.xml")
+```
