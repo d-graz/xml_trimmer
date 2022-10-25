@@ -1,13 +1,29 @@
 from trimmer import Trimmer
+import database_cleaner as dbc
 import sys
 
-if len(sys.argv) != 3 and len(sys.argv) != 4:
+
+if len(sys.argv) < 2:
     print("Error")
-    print("Printing usage:")
-    print("python main.py <source/file.xml> <output/file.xml> [#_of_articles]")
+    print("Specify action whit: clean,trimm")
     sys.exit(-1)
-elif len(sys.argv) == 3:
-    trimmer = Trimmer(sys.argv[1],sys.argv[2],5000)
+if sys.argv[1] == "clean":
+    if len(sys.argv) != 4:
+        print("Error")
+        print("Please specify input file and output file")
+        sys.exit(-1)
+    dbc.parse(sys.argv[2], sys.argv[3])
+    sys.exit(0)
+elif sys.argv[1] == "trimm":
+    if len(sys.argv) == 4:
+        trimmer = Trimmer(sys.argv[2],sys.argv[3],500)
+    elif len(sys.argv) == 5:
+        trimmer = Trimmer(sys.argv[2],sys.argv[3],sys.argv[4])
+    else:
+        print("Error")
+        print("Please specify at least input file and output file")
+        sys.exit(-1)
+    trimmer.trimm()
 else:
-    trimmer = Trimmer(sys.argv[1],sys.argv[2],sys.argv[3])
-trimmer.trimm_and_clean()
+    print("Error :"+sys.argv[1]+" not recognized")
+    sys.exit(-1)

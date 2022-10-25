@@ -1,8 +1,6 @@
-import sys
-
-def parser(file_name):
-    file_original = open(file_name,"r")
-    file_mod = open("modified_database.xml", "w")
+def parse(file_in,file_out):
+    file_original = open(file_in,"r")
+    file_mod = open(file_out, "w")
     database_line = file_original.readlines()
     for line in database_line:
         for i in range(len(line)):
@@ -14,7 +12,3 @@ def parser(file_name):
             else:
                 file_mod.write(line[i])
 
-if len(sys.argv)!=2:
-    print("Error")
-    sys.exit(-1)
-parser(sys.argv[1])
