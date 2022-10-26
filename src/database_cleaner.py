@@ -11,6 +11,8 @@ def parse(file_in,file_out,csv=False):
                 file_mod.write("e")
             elif line[i] == "," and csv == True:
                 file_mod.write("")
+            elif line[i] == ";" and csv == True:
+                file_mod.write(" ")
             else:
                 file_mod.write(line[i])
 
