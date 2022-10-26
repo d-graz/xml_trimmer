@@ -6,7 +6,7 @@ class Trimmer:
         self.new = new
         self.keywords = [["<article ","</article>\n"],["<inproceedings ","</inproceedings>\n"],["<proceedings ","</proceedings>\n"],["<book ","</book>\n"],["<incollection ","</incollection>\n"],["<phdthesis ","</phdthesis>\n"],["<mastersthesis ","</mastersthesis>\n"]]
 
-    def trimm(self):
+    def trim(self):
         reference_file = open(self.reference, "r")
         new_file = open(self.new, "w")
         new_file.write("<dblp>\n")
