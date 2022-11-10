@@ -14,7 +14,7 @@ python main.py clean_csv <path/to/your_database.xml> <path/to/cleaned_database.x
 
 Trimm down size to make file size more feasible for import in neo4j
 ```
-python main.py trimm <path/to/cleaned_database.xml> <path/to/neo4j_database.xml> [#_of_articles,books,...]
+python main.py trim <path/to/cleaned_database.xml> <path/to/neo4j_database.xml> [#_of_articles,books,...]
 ```
 Defaul size of number of articles is `500`
 
