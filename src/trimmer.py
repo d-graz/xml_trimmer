@@ -19,10 +19,12 @@ class Trimmer:
 
     def populate(self,keyword,reference_lines,new_file):
         path = self.new.rsplit("/",1)
-        #DEGUB
         file_by_key_name = keyword[0].replace(" ","")
         file_by_key_name = file_by_key_name.replace("<","")
-        file_by_key_name = path[0]+"/"+file_by_key_name+".xml"
+        if len(path) == 2:
+            file_by_key_name = path[0]+"/"+file_by_key_name+".xml"
+        else:
+            file_by_key_name = file_by_key_name+".xml"
         file_by_key = open(file_by_key_name,"w")
         file_by_key.write("<dblp>\n")
         keyword_size = 0
